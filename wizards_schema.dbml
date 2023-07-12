@@ -1,0 +1,30 @@
+Table wizards {
+  id int [primary key]
+  first_name varchar(20)
+  last_name varchar(20)
+  email varchar(255)
+  realm_id int
+}
+
+Table apprentices {
+  id int [primary key]
+  first_name varchar(50)
+  last_name varchar(50)
+  wizard_id int
+}
+
+Table powers {
+  id int [primary key]
+  name varchar(50)
+}
+
+Table realms {
+  id int [primary key]
+  name varchar(50)
+}
+
+Ref: apprentices.wizard_id > wizards.id
+Ref: wizards.id <> powers.id
+Ref: wizards.realm_id - realms.id
+Ref: apprentices.id <> powers.id
+Ref: apprentices.id > realms.id
